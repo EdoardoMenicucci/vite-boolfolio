@@ -1,0 +1,20 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333 !important;
+  color: white !important;
+}
+
+img {
+  max-width: 300px;
+}
+
+li {
+  margin-bottom: 10px;
+  list-style: none;
+}
