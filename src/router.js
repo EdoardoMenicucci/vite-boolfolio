@@ -1,7 +1,7 @@
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
 
 import Home from "./pages/Home.vue";
-import Projects from "./pages/Projects.vue"; //<---- Import del componente About!
+import Projects from "./pages/Projects.vue";
 import Project from "./pages/Project.vue";
 
 const routes = [
@@ -23,7 +23,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 });
 

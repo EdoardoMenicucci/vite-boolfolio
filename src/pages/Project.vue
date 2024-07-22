@@ -7,7 +7,7 @@ export default {
 
     data() {
         return {
-            project: {},
+            project: '',
             baseUrl: 'http://localhost:8000'
         }
     },
@@ -39,23 +39,24 @@ export default {
 <template>
 
     <div class=" bg-dark d-flex justify-content-center">
-        <div class="card m-3 w-75">
-            <div class="card-header text-center">{{ project.name }}</div>
-            <!-- IMMAGINE -->
-            <div class="d-flex justify-content-center">
-                <img :src="project.img" alt="">
+        <template v-if="project">
+            <div class="card m-3 w-75">
+                <div class="card-header text-center">{{ project.name }}</div>
+                <!-- IMMAGINE -->
+                <div class="d-flex justify-content-center">
+                    <img :src="project.img" alt="">
+                </div>
+
+                <div class="card-body text-center">
+                    <div>{{ project.description }}</div>
+                    <div class="fw-bold">{{ project.type.name }}</div>
+                    <div> {{ project.type.description }}</div>
+                </div>
+
             </div>
-
-            <div class="card-body text-center">
-                <div>{{ project.description }}</div>
-            </div>
-            <div>
-                {{ project.type }}
-            </div>
+        </template>
 
 
-
-        </div>
     </div>
 
 </template>
