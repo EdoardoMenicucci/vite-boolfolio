@@ -3,11 +3,11 @@
 import axios from 'axios';
 
 export default {
-    name: 'App',
+    name: 'Projects',
 
     data() {
         return {
-            projects: [],
+            projects: null,
             baseUrl: 'http://localhost:8000'
         }
     },
@@ -19,6 +19,8 @@ export default {
         axios.get(this.baseUrl + '/api/projects').then((response) => {
             console.log(response.data);
             this.projects = response.data.projects.data;
+        }).catch((error) => {
+            console.log(error);
         })
     },
 

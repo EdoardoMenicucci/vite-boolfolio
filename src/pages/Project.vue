@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 export default {
-    name: 'App',
+    name: 'Project',
 
     data() {
         return {
@@ -18,13 +18,18 @@ export default {
     mounted() {
         axios.get(this.baseUrl + '/api/projects/' + this.$route.params.id).then((response) => {
             console.log(response.data);
-            this.project = response.data.project;
-            // CONTROLLO IMMAGINE PER EVITARE PROBLEMI CON VUE
-            if (this.project.img.startsWith('http')) {
-                this.project.img = this.project.img
+            if (response.data.success) {
+                this.project = response.data.project;
+                // CONTROLLO IMMAGINE PER EVITARE PROBLEMI CON VUE
+                if (this.project.img.startsWith('http')) {
+                    this.project.img = this.project.img
+                } else {
+                    this.project.img = this.baseUrl + '/storage/' + this.project.img
+                }
             } else {
-                this.project.img = this.baseUrl + '/storage/' + this.project.img
+                this.$router.push({ name: 'NotFound' })
             }
+
         })
     },
 

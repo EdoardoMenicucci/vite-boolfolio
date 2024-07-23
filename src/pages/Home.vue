@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 export default {
-    name: 'App',
+    name: 'Home',
 
     data() {
         return {
@@ -16,10 +16,7 @@ export default {
     },
 
     mounted() {
-        axios.get(this.baseUrl + '/api/projects').then((response) => {
-            console.log(response.data);
-            this.projects = response.data.projects.data;
-        })
+
     },
 
     computed: {
