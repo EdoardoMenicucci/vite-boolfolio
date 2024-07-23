@@ -16,9 +16,9 @@ export default {
     },
 
     mounted() {
-        axios.get(this.baseUrl + '/api/projects').then((response) => {
+        axios.get(this.baseUrl + '/api/projects/' + this.$route.params.id).then((response) => {
             console.log(response.data);
-            this.project = response.data.projects.data[this.$route.params.id];
+            this.project = response.data.project;
             // CONTROLLO IMMAGINE PER EVITARE PROBLEMI CON VUE
             if (this.project.img.startsWith('http')) {
                 this.project.img = this.project.img
@@ -39,6 +39,7 @@ export default {
 <template>
 
     <div class=" bg-dark d-flex justify-content-center">
+        <!-- if per evitare errori di delay della risposta -->
         <template v-if="project">
             <div class="card m-3 w-75">
                 <div class="card-header text-center">{{ project.name }}</div>
@@ -52,7 +53,6 @@ export default {
                     <div class="fw-bold">{{ project.type.name }}</div>
                     <div> {{ project.type.description }}</div>
                 </div>
-
             </div>
         </template>
 

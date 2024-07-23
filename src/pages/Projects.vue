@@ -37,7 +37,7 @@ export default {
         <template v-if="projects">
             <div class="cont d-flex flex-wrap justify-content-center">
                 <div class="card m-3" v-for="project, index in projects">
-                    <div class="card-header"><router-link :to="{ name: 'Project', params: { id: index } }"> {{
+                    <div class="card-header"><router-link :to="{ name: 'Project', params: { id: project.id } }"> {{
                         project.name }} </router-link></div>
 
                     <!-- SE L'IMMAGINE INIZIA CON HTTP -->
